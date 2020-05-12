@@ -2,7 +2,7 @@
   "name": "react-cards-stack",
   "version": "1.1.1",
   "description": "A react component for creating cards stack.",
-  "keywords" : "react cards, cards, quiz cards, react codrops cards stack, react stack",
+  "keywords": "react cards, cards, quiz cards, react codrops cards stack, react stack",
   "main": "build/index.js",
   "peerDependencies": {
     "react": "^15.5.4"

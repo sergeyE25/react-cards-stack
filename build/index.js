@@ -416,82 +416,90 @@ var Fancy = function (_React$Component) {
   }
 
   _createClass(Fancy, [{
-    key: 'componentDidMount',
+    key: "componentDidMount",
     value: function componentDidMount() {
-      var stack = new Stack(document.getElementById('stack'));
+      var stack = new Stack(document.getElementById("stack"));
+      stack.options = Object.assign(stack.options, this.state.options);
       stack.options.infinite = this.state.infinite;
       stack.options.onEndStack = this.onEndStack;
       this.setState({ stack: stack });
     }
   }, {
-    key: 'componentWillMount',
+    key: "componentWillMount",
     value: function componentWillMount() {
       this.setState({
         imgs: this.props.images,
-        postivebtnlabel: this.props.postivebtnlabel || 'Yes',
-        negativebtnlabel: this.props.negativebtnlabel || 'No',
-        postivebtnclass: this.props.postivebtnclass || '',
-        negativebtnclass: this.props.negativebtnclass || '',
+        postivebtnlabel: this.props.postivebtnlabel || "Yes",
+        negativebtnlabel: this.props.negativebtnlabel || "No",
+        postivebtnclass: this.props.postivebtnclass || "",
+        negativebtnclass: this.props.negativebtnclass || "",
         query: this.props.query || undefined,
-        queryclass: this.props.queryclass || '',
-        imgclass: this.props.imgclass || '',
-        effect: this.props.effect || 'krisna',
-        infinite: this.props.infinite || false
+        queryclass: this.props.queryclass || "",
+        imgclass: this.props.imgclass || "",
+        effect: this.props.effect || "krisna",
+        infinite: this.props.infinite || false,
+        options: this.props.options || {}
       });
     }
   }, {
-    key: 'onEndStack',
+    key: "onEndStack",
     value: function onEndStack() {
       this.props.onstackendfn();
     }
   }, {
-    key: 'reject',
+    key: "reject",
     value: function reject() {
       var stack = this.state.stack;
       stack.reject();
     }
   }, {
-    key: 'accept',
+    key: "accept",
     value: function accept() {
       var stack = this.state.stack;
       stack.accept();
     }
   }, {
-    key: 'render',
+    key: "render",
     value: function render() {
       return _react2.default.createElement(
-        'div',
-        { className: 'stack-container' },
+        "div",
+        { className: "stack-container" },
         _react2.default.createElement(
-          'ul',
-          { id: 'stack', className: 'stack stack--' + this.state.effect },
+          "ul",
+          { id: "stack", className: "stack stack--" + this.state.effect },
           this.state.imgs && this.state.imgs.map(function (img, i) {
             return _react2.default.createElement(
-              'li',
-              { key: i, className: 'stack__item' },
-              _react2.default.createElement('img', { src: img })
+              "li",
+              { key: i, className: "stack__item" },
+              _react2.default.createElement("img", { src: img })
             );
           })
         ),
         _react2.default.createElement(
-          'div',
-          { className: 'controls' },
+          "div",
+          { className: "controls" },
           _react2.default.createElement(
-            'div',
+            "div",
             null,
             _react2.default.createElement(
-              'p',
+              "p",
               { className: this.state.queryclass },
               this.state.query
             ),
             _react2.default.createElement(
-              'button',
-              { className: this.state.negativebtnclass, onClick: this.reject },
+              "button",
+              {
+                className: this.state.negativebtnclass,
+                onClick: this.reject
+              },
               this.state.negativebtnlabel
             ),
             _react2.default.createElement(
-              'button',
-              { className: this.state.postivebtnclass, onClick: this.accept },
+              "button",
+              {
+                className: this.state.postivebtnclass,
+                onClick: this.accept
+              },
               this.state.postivebtnlabel
             )
           )
