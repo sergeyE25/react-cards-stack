@@ -418,7 +418,7 @@ var Fancy = function (_React$Component) {
   _createClass(Fancy, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var stack = new Stack(document.getElementById("stack"));
+      var stack = new Stack(document.getElementById("stack"), this.state.options);
       stack.options = Object.assign(stack.options, this.state.options);
       stack.options.infinite = this.state.infinite;
       stack.options.onEndStack = this.onEndStack;
