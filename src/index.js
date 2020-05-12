@@ -20,7 +20,7 @@ class Fancy extends React.Component {
   }
 
   componentDidMount() {
-    let stack = new Stack(document.getElementById("stack"));
+    let stack = new Stack(document.getElementById("stack"), this.state.options);
     stack.options = Object.assign(stack.options, this.state.options);
     stack.options.infinite = this.state.infinite;
     stack.options.onEndStack = this.onEndStack;
